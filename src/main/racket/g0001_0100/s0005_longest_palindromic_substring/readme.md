@@ -39,11 +39,6 @@ Given a string `s`, return _the longest palindromic substring_ in `s`.
 ## Solution
 
 ```racket
-; #Medium #Top_100_Liked_Questions #Top_Interview_Questions #String #Dynamic_Programming
-; #Data_Structure_II_Day_9_String #Algorithm_II_Day_14_Dynamic_Programming
-; #Dynamic_Programming_I_Day_17 #Udemy_Strings #Big_O_Time_O(n)_Space_O(n)
-; #2025_01_28_Time_10_(50.00%)_Space_102.35_(50.00%)
-
 (define (longest-palindrome s)
   (define (expand-around-center s left right)
     (let loop ([l left] [r right])

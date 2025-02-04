@@ -34,9 +34,6 @@ Each solution contains a distinct board configuration of the n-queens' placement
 ## Solution
 
 ```racket
-; #Hard #Top_100_Liked_Questions #Array #Backtracking #Big_O_Time_O(N!)_Space_O(N)
-; #2025_02_03_Time_123_(100.00%)_Space_129.70_(100.00%)
-
 (define (reverse sequence)
     (foldr (lambda (x y) (append y (list x))) `() sequence))
 

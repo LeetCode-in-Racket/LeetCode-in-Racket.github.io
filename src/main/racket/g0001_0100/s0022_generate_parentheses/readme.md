@@ -26,11 +26,6 @@ Given `n` pairs of parentheses, write a function to _generate all combinations o
 ## Solution
 
 ```racket
-; #Medium #Top_100_Liked_Questions #Top_Interview_Questions #String #Dynamic_Programming
-; #Backtracking #Algorithm_II_Day_11_Recursion_Backtracking #Udemy_Backtracking/Recursion
-; #Top_Interview_150_Backtracking #Big_O_Time_O(2^n)_Space_O(n)
-; #2025_02_03_Time_3_(100.00%)_Space_101.96_(100.00%)
-
 (define (generate-parenthesis n)
   (let ([res '()])
     (let loop ([opening 0] [closing 0] [path ""])

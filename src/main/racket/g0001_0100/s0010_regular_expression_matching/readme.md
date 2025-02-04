@@ -61,9 +61,6 @@ The matching should cover the **entire** input string (not partial).
 ## Solution
 
 ```racket
-; #Hard #Top_Interview_Questions #String #Dynamic_Programming #Recursion #Udemy_Dynamic_Programming
-; #Big_O_Time_O(m*n)_Space_O(m*n) #2025_02_03_Time_11_(100.00%)_Space_101.36_(100.00%)
-
 (define (regex-state s is-star)
   (list s (if is-star '* '1)))
 

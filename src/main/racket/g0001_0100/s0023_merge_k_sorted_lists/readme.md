@@ -41,10 +41,6 @@ _Merge all the linked-lists into one sorted linked-list and return it._
 ## Solution
 
 ```racket
-; #Hard #Top_100_Liked_Questions #Top_Interview_Questions #Heap_Priority_Queue #Linked_List
-; #Divide_and_Conquer #Merge_Sort #Top_Interview_150_Divide_and_Conquer
-; #Big_O_Time_O(k*n*log(k))_Space_O(log(k)) #2025_02_03_Time_306_(100.00%)_Space_130.68_(100.00%)
-
 ; Definition for singly-linked list:
 #|
 

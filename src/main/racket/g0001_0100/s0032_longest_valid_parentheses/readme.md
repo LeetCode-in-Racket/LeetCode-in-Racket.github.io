@@ -37,9 +37,6 @@ Given a string containing just the characters `'('` and `')'`, find the length o
 ## Solution
 
 ```racket
-; #Hard #Top_100_Liked_Questions #String #Dynamic_Programming #Stack #Big_O_Time_O(n)_Space_O(1)
-; #2025_02_03_Time_3_(100.00%)_Space_101.36_(100.00%)
-
 (define/contract (longest-valid-parentheses s)
   (-> string? exact-integer?)
   (let* ((n (string-length s)))

@@ -40,9 +40,6 @@ Given a signed 32-bit integer `x`, return `x` _with its digits reversed_. If rev
 ## Solution
 
 ```racket
-; #Medium #Top_Interview_Questions #Math #Udemy_Integers
-; #2025_02_03_Time_204_(100.00%)_Space_101.45_(100.00%)
-
 (define/contract (reverse x)
   (-> exact-integer? exact-integer?)
   (let loop ((x x) (rev 0))

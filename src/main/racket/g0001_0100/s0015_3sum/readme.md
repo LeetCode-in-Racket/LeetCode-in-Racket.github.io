@@ -35,11 +35,6 @@ Notice that the solution set must not contain duplicate triplets.
 ## Solution
 
 ```racket
-; #Medium #Top_100_Liked_Questions #Top_Interview_Questions #Array #Sorting #Two_Pointers
-; #Data_Structure_II_Day_1_Array #Algorithm_II_Day_3_Two_Pointers #Udemy_Two_Pointers
-; #Top_Interview_150_Two_Pointers #Big_O_Time_O(n*log(n))_Space_O(n^2)
-; #2025_02_03_Time_999_(100.00%)_Space_130.90_(100.00%)
-
 (define (bin-search val left right items)
   (cond [(> left right) #f]
         [(= left right) (eq? val (vector-ref items left))]

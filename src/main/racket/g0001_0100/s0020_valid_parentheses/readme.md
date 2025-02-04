@@ -50,10 +50,6 @@ An input string is valid if:
 ## Solution
 
 ```racket
-; #Easy #Top_100_Liked_Questions #Top_Interview_Questions #String #Stack
-; #Data_Structure_I_Day_9_Stack_Queue #Udemy_Strings #Top_Interview_150_Stack
-; #Big_O_Time_O(n)_Space_O(n) #2025_02_03_Time_98_(100.00%)_Space_130.80_(100.00%)
-
 (define (is-left-paren c)
     (or (eq? c #\u28)
         (eq? c #\[)

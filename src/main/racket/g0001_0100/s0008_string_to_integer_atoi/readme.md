@@ -118,8 +118,6 @@ Since -91283472332 is less than the lower bound of the range [-2<sup>31</sup>, 2
 ## Solution
 
 ```racket
-; #Medium #Top_Interview_Questions #String #2025_02_03_Time_3_(100.00%)_Space_101.64_(100.00%)
-
 (define/contract (my-atoi s)
   (-> string? exact-integer?)
   (let* ((trimmed (string-trim s))

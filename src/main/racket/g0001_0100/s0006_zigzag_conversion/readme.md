@@ -44,9 +44,6 @@ string convert(string s, int numRows);
 ## Solution
 
 ```racket
-; #Medium #String #Top_Interview_150_Array/String
-; #2025_02_03_Time_57_(100.00%)_Space_130.82_(60.00%)
-
 (define/contract (convert s numRows)
   (-> string? exact-integer? string?)
   (let* ((sLen (string-length s))
