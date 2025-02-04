@@ -1,0 +1,84 @@
+[![](https://img.shields.io/github/stars/LeetCode-in-Racket/LeetCode-in-Racket?label=Stars&style=flat-square)](https://github.com/LeetCode-in-Racket/LeetCode-in-Racket)
+[![](https://img.shields.io/github/forks/LeetCode-in-Racket/LeetCode-in-Racket?label=Fork%20me%20on%20GitHub%20&style=flat-square)](https://github.com/LeetCode-in-Racket/LeetCode-in-Racket/fork)
+
+## 23\. Merge k Sorted Lists
+
+Hard
+
+You are given an array of `k` linked-lists `lists`, each linked-list is sorted in ascending order.
+
+_Merge all the linked-lists into one sorted linked-list and return it._
+
+**Example 1:**
+
+**Input:** lists = \[\[1,4,5],[1,3,4],[2,6]]
+
+**Output:** [1,1,2,3,4,4,5,6]
+
+**Explanation:** The linked-lists are: [ 1->4->5, 1->3->4, 2->6 ] merging them into one sorted list: 1->1->2->3->4->4->5->6
+
+**Example 2:**
+
+**Input:** lists = []
+
+**Output:** []
+
+**Example 3:**
+
+**Input:** lists = \[\[]]
+
+**Output:** []
+
+**Constraints:**
+
+*   `k == lists.length`
+*   `0 <= k <= 10^4`
+*   `0 <= lists[i].length <= 500`
+*   `-10^4 <= lists[i][j] <= 10^4`
+*   `lists[i]` is sorted in **ascending order**.
+*   The sum of `lists[i].length` won't exceed `10^4`.
+
+## Solution
+
+```racket
+; #Hard #Top_100_Liked_Questions #Top_Interview_Questions #Heap_Priority_Queue #Linked_List
+; #Divide_and_Conquer #Merge_Sort #Top_Interview_150_Divide_and_Conquer
+; #Big_O_Time_O(k*n*log(k))_Space_O(log(k)) #2025_02_03_Time_306_(100.00%)_Space_130.68_(100.00%)
+
+; Definition for singly-linked list:
+#|
+
+; val : integer?
+; next : (or/c list-node? #f)
+(struct list-node
+  (val next) #:mutable #:transparent)
+
+; constructor
+(define (make-list-node [val 0])
+  (list-node val #f))
+
+|#
+
+(define/contract (merge-k-lists lists)
+  (-> (listof (or/c list-node? #f)) (or/c list-node? #f))
+  (define (merge-two-lists l1 l2)
+    (cond
+      [(not l1) l2]
+      [(not l2) l1]
+      [(< (list-node-val l1) (list-node-val l2))
+       (set-list-node-next! l1 (merge-two-lists (list-node-next l1) l2))
+       l1]
+      [else
+       (set-list-node-next! l2 (merge-two-lists l1 (list-node-next l2)))
+       l2]))
+  
+  (define (merge lists)
+    (cond
+      [(empty? lists) #f]
+      [(= (length lists) 1) (car lists)]
+      [else
+       (merge-two-lists (car lists) (merge (cdr lists)))]))
+  
+  (merge lists)
+  )
+```

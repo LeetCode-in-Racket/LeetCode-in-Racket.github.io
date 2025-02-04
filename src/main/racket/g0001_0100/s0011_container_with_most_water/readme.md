@@ -1,0 +1,67 @@
+[![](https://img.shields.io/github/stars/LeetCode-in-Racket/LeetCode-in-Racket?label=Stars&style=flat-square)](https://github.com/LeetCode-in-Racket/LeetCode-in-Racket)
+[![](https://img.shields.io/github/forks/LeetCode-in-Racket/LeetCode-in-Racket?label=Fork%20me%20on%20GitHub%20&style=flat-square)](https://github.com/LeetCode-in-Racket/LeetCode-in-Racket/fork)
+
+## 11\. Container With Most Water
+
+Medium
+
+Given `n` non-negative integers <code>a<sub>1</sub>, a<sub>2</sub>, ..., a<sub>n</sub></code> , where each represents a point at coordinate <code>(i, a<sub>i</sub>)</code>. `n` vertical lines are drawn such that the two endpoints of the line `i` is at <code>(i, a<sub>i</sub>)</code> and `(i, 0)`. Find two lines, which, together with the x-axis forms a container, such that the container contains the most water.
+
+**Notice** that you may not slant the container.
+
+**Example 1:**
+
+![](https://s3-lc-upload.s3.amazonaws.com/uploads/2018/07/17/question_11.jpg)
+
+**Input:** height = [1,8,6,2,5,4,8,3,7]
+
+**Output:** 49
+
+**Explanation:** The above vertical lines are represented by array [1,8,6,2,5,4,8,3,7]. In this case, the max area of water (blue section) the container can contain is 49. 
+
+**Example 2:**
+
+**Input:** height = [1,1]
+
+**Output:** 1 
+
+**Example 3:**
+
+**Input:** height = [4,3,2,1,4]
+
+**Output:** 16 
+
+**Example 4:**
+
+**Input:** height = [1,2,1]
+
+**Output:** 2 
+
+**Constraints:**
+
+*   `n == height.length`
+*   <code>2 <= n <= 10<sup>5</sup></code>
+*   <code>0 <= height[i] <= 10<sup>4</sup></code>
+
+## Solution
+
+```racket
+; #Medium #Top_100_Liked_Questions #Top_Interview_Questions #Array #Greedy #Two_Pointers
+; #Algorithm_II_Day_4_Two_Pointers #Top_Interview_150_Two_Pointers #Big_O_Time_O(n)_Space_O(1)
+; #2025_02_03_Time_32_(100.00%)_Space_130.58_(100.00%)
+
+(define/contract (max-area height)
+  (-> (listof exact-integer?) exact-integer?)
+    
+    (define h (list->vector height))
+    (define (helper left right)
+        (cond [(>= left right) 0]
+              [else (let ([area (* (min (vector-ref h left) (vector-ref h right)) (- right left))])
+                        (max area
+                            (if (< (vector-ref h left) (vector-ref h right))
+                                (helper (add1 left) right)
+                                (helper left (sub1 right)))))]))
+                                
+    (helper 0 (sub1 (vector-length h)))
+  )
+```
